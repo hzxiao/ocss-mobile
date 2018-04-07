@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 
+using ocssmobile.Views;
 namespace ocssmobile
 {
     public class MainPage : TabbedPage
