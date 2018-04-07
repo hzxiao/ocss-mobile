@@ -9,11 +9,31 @@ namespace ocssmobile
     {
         public MainPage()
         {
-            Page itemsPage, aboutPage = null;
+            Page selectCoursePage, myCoursePage, noticePage, profilePage, itemsPage, aboutPage = null;
 
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
+                    selectCoursePage = new NavigationPage(new SelectCoursePage())
+                    {
+                        Title = "选课"
+                    };
+
+                    myCoursePage = new NavigationPage(new MyCoursePage())
+                    {
+                        Title = "课程"
+                    };
+
+                    noticePage = new NavigationPage(new NoticePage())
+                    {
+                        Title = "通知"
+                    };
+
+                    profilePage = new NavigationPage(new ProfilePage())
+                    {
+                        Title = "我的"
+                    };
+
                     itemsPage = new NavigationPage(new ItemsPage())
                     {
                         Title = "Browse"
@@ -23,10 +43,35 @@ namespace ocssmobile
                     {
                         Title = "About"
                     };
+                    selectCoursePage.Icon = "tab_feed.png";
+                    myCoursePage.Icon = "tab_feed.png";
+                    noticePage.Icon = "tab_feed.png";
+                    profilePage.Icon = "tab_feed.png";
+
                     itemsPage.Icon = "tab_feed.png";
                     aboutPage.Icon = "tab_about.png";
                     break;
                 default:
+                    selectCoursePage = new SelectCoursePage()
+                    {
+                        Title = "选课"
+                    };
+
+                    myCoursePage = new MyCoursePage()
+                    {
+                        Title = "课程"
+                    };
+
+                    noticePage = new NoticePage()
+                    {
+                        Title = "通知"
+                    };
+
+                    profilePage = new ProfilePage()
+                    {
+                        Title = "我的"
+                    };
+
                     itemsPage = new ItemsPage()
                     {
                         Title = "Browse"
@@ -38,6 +83,12 @@ namespace ocssmobile
                     };
                     break;
             }
+
+            Children.Add(selectCoursePage);
+            Children.Add(myCoursePage);
+            Children.Add(noticePage);
+            Children.Add(profilePage);
+
 
             Children.Add(itemsPage);
             Children.Add(aboutPage);
