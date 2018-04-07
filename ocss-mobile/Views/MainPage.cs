@@ -43,6 +43,11 @@ namespace ocssmobile
             Children.Add(aboutPage);
 
             Title = Children[0].Title;
+
+            if (!App.Current.Properties.ContainsKey("token"))
+            {
+                Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new NavigationPage(new LoginPage()));
+            }
         }
 
         protected override void OnCurrentPageChanged()

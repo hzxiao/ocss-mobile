@@ -24,28 +24,14 @@ namespace ocssmobile
             {
                 App.Current.Properties.Clear();
             }
+
             if (Device.RuntimePlatform == Device.iOS)
             {
-                Console.WriteLine(App.Current.Properties.ContainsKey("token"));
-                if (App.Current.Properties.ContainsKey("token"))
-                {
-                    MainPage = new MainPage();
-                }
-                else 
-                {
-                    MainPage = new LoginPage();
-                }
+                MainPage = new MainPage();
             }
             else
             {
-                if (App.Current.Properties.ContainsKey("token"))
-                {
-                    MainPage = new NavigationPage(new MainPage());
-                }
-                else
-                {
-                    MainPage = new NavigationPage(new LoginPage());
-                }
+                MainPage = new NavigationPage(new MainPage());
             }
         }
     }
